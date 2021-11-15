@@ -9,11 +9,11 @@ public class Game {
 	
 	boolean isGameOn = true;
 	
-	
-	//Constructor
-	public Game() {
-		
-	}
+//	
+//	//Constructor
+//	public Game() {
+//		
+//	}
 	
 	
 	

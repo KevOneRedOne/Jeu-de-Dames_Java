@@ -1,5 +1,5 @@
 package models;
 
-public class Pion {
+public class Pion extends Piece {
 
 }

@@ -1,48 +1,45 @@
 package game;
 
+import java.util.ArrayList;
+import models.Pion;
+import utils.Utilitary;
+
 public class Game {
-	//Attributs	
 	int sizeTabX = 10;
 	int sizeTabY = 10;
-	
-	char [][] board = new char[sizeTabX][sizeTabY];
-	
 	boolean isGameOn = true;
 	
-//	
-//	//Constructor
-//	public Game() {
-//		
-//	}
-	
-	
-	public void game() {
-		// TODO Auto-generated method stub
-		fillBoard(board);
+	char [][] board = new char[sizeTabX][sizeTabY];
+	ArrayList<Pion> PionPlayer1 = new ArrayList<Pion>();
+	ArrayList<Pion> PionIA = new ArrayList<Pion>();
 		
-		printBoard(board);
+	public void launchGame() {
+		
+		Utilitary.fillBoard(board);
+		createPieceIA(board);
+		Utilitary.printMap(board);
+		
 	}
 	
-	public static void printBoard(char[][] board) {
-		System.out.println();
-		for (int i = 0; i <= board.length-1; i++){
-            for(int j = 0; j <= board.length-1; j++){
-                
-            	System.out.print(" | " + board[j][i]);    
-            }
-            System.out.println(" | ");
-        }
-        System.out.println();
-	}
-	
-	public static void fillBoard(char[][] board) {
-		for(int i=0; i<=board.length-1; i++) {
-			for(int j=0; j<=board.length-1; j++) {
-				board[i][j] = '.';
-				
-							
+	private void createPieceIA(char[][] board) {	
+		for (int row = 0; row <= 3 ; row++) {
+			for (int col = 0; col < board.length; col++) {
+                if (row%2==0) {
+                    if (col%2 == 1) {
+                        PionIA.add(new Pion('X', col, row, "black"));
+                    }
+                }
+                if (row%2==1) {
+                    if (col%2==0) {
+                        PionIA.add(new Pion('X', col, row, "black"));
+                    }
+                }
 			}
+		}	
+		for (Pion listPionIA : PionIA) {
+			board[listPionIA.getPosX()][listPionIA.getPosY()] = listPionIA.getTypePiece();
 		}
 	}
 
 }
+

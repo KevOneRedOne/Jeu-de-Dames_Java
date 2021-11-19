@@ -19,10 +19,6 @@ public class Utilitary {
 		for(int i=0; i<=CheckersBoard.length-1; i++) {
 			for(int j=0; j<=CheckersBoard.length-1; j++) {
 				CheckersBoard[i][j] = ' ';	
-//				CheckersBoard[i][0] = '' ;
-//				CheckersBoard[i][CheckersBoard[i].length-1]='|';
-//				CheckersBoard[0][j] = '|' ;
-//				CheckersBoard[CheckersBoard[i].length-1][j]='|';
 			}
 		}
 	}

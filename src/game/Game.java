@@ -1,19 +1,21 @@
 package game;
 
 import java.util.ArrayList;
+
+import menu.Menu;
 import models.Pion;
 import utils.Utilitary;
 
 public class Game {
 	int sizeTabX = 10;
 	int sizeTabY = 10;
-	boolean isGameOn = true;
 	
 	char [][] board = new char[sizeTabX][sizeTabY];
 	ArrayList<Pion> PionPlayer1 = new ArrayList<Pion>();
 	ArrayList<Pion> PionIA = new ArrayList<Pion>();
 		
 	public void launchGame() {
+		Menu.MenuPrincipal();
 		
 		Utilitary.fillBoard(board);
 		createPieceIA(board);

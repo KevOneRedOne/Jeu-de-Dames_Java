@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Utilitary {
 	
 	public static void printMap(char[][] mapToRead) {
+		System.out.println();
 		System.out.println(" -----------------------------------------");
 		for (int i = 0; i < mapToRead.length; i++) {
 			for (int j = 0; j < mapToRead.length; j++) {
@@ -18,7 +19,7 @@ public class Utilitary {
 	public static void fillBoard(char[][] CheckersBoard) {
 		for(int i=0; i<=CheckersBoard.length-1; i++) {
 			for(int j=0; j<=CheckersBoard.length-1; j++) {
-				CheckersBoard[i][j] = ' ';	
+				CheckersBoard[i][j] = ' ';
 			}
 		}
 	}

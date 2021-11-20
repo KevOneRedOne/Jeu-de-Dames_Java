@@ -1,6 +1,7 @@
 package menu;
 
 import utils.Utilitary;
+import game.Game;
 
 public class Menu {
 
@@ -16,10 +17,13 @@ public class Menu {
 		
 			switch (Utilitary.inputUsers()) {
 			case "1":
-				
+				Game.createPieceIA();
+				Game.createPiecePlayer1();
 				break;
 				
 			case "2":
+				Game.createPiecePlayer1();
+				Game.createPiecePlayer2();
 				break;
 				
 			case "3":

@@ -4,12 +4,22 @@ public class Piece {
 	
 	char typePiece ;
 	int posX ; int posY ;
+	boolean controlledbyUser; 
 
-	public Piece(char typePiece, int posX, int posY) {
+	public Piece(char typePiece, int posX, int posY, boolean controlledbyUser) {
 		super();
 		this.typePiece = typePiece;
 		this.posX = posX;
 		this.posY = posY;
+		this.controlledbyUser = controlledbyUser;
+	}
+
+	public boolean isControlledbyUser() {
+		return controlledbyUser;
+	}
+
+	public void setControlledbyUser(boolean controlledbyUser) {
+		this.controlledbyUser = controlledbyUser;
 	}
 
 	public char getTypePiece() {

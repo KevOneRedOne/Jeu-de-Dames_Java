@@ -29,7 +29,7 @@ public class Game {
 	private void MovePiecePlayer1() {
 		
 		for (Pion pion : PionPlayer1) {
-			System.out.print(pion);
+			System.out.println(pion);
 		}
 	}
 	
@@ -71,7 +71,7 @@ public class Game {
 				}
 			}
 		}	
-		for (Pion listPionJ2 : PionIA) {
+		for (Pion listPionJ2 : PionPlayer2) {
 			board[listPionJ2.getPosX()][listPionJ2.getPosY()] = listPionJ2.getTypePiece();
 		}
 	}

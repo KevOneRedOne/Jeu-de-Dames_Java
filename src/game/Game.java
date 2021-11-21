@@ -14,9 +14,9 @@ public class Game {
 	static ArrayList<Pion> PionPlayer1 = new ArrayList<Pion>();
 	static ArrayList<Pion> PionPlayer2 = new ArrayList<Pion>();
 	static ArrayList<Pion> PionIA = new ArrayList<Pion>();
-		
+	
 	public void launchGame() {
-//		Menu.MenuPrincipal();
+		Menu.MenuPrincipal();
 		
 		Utilitary.fillBoard(board);
 		createPieceIA();
@@ -96,4 +96,3 @@ public class Game {
 		}
 	}
 }
-

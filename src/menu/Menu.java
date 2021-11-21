@@ -19,11 +19,20 @@ public class Menu {
 			case "1":
 				Game.createPieceIA();
 				Game.createPiecePlayer1();
+				System.out.println("Quel est le nom du joueur ?");
+				String name = Utilitary.inputUsers();
+				System.out.println("Nom joueur " + name);
 				break;
 				
 			case "2":
 				Game.createPiecePlayer1();
+				System.out.println("Quel est le nom du joueur 1 ?");
+				String name1 = Utilitary.inputUsers();
+				System.out.println("Nom joueur 1 " + name1);
 				Game.createPiecePlayer2();
+				System.out.println("Quel est le nom du joueur 2 ?");
+				String name2 = Utilitary.inputUsers();
+				System.out.println("Nom joueur 2 " + name2);				
 				break;
 				
 			case "3":

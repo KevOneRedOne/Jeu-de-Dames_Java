@@ -23,4 +23,15 @@ public class Utilitary {
     	String s = sc.nextLine();
     	return s;
 	}
+	
+	public static int readInt() {
+		Scanner sc = new Scanner(System.in);
+		int i = 0;
+		try {
+			i = sc.nextInt();
+		}
+		catch(Exception e) {
+		}
+		return i;
+	}
 }

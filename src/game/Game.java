@@ -1,9 +1,9 @@
 package game;
 
 import java.util.ArrayList;
-
 import menu.Menu;
 import models.Pion;
+//import utils.Utilitary;
 import utils.Utilitary;
 
 public class Game {
@@ -15,24 +15,22 @@ public class Game {
 	static ArrayList<Pion> PionPlayer2 = new ArrayList<Pion>();
 	
 	public void launchGame() {
-//		Menu.MenuPrincipal();
-		createPiecePlayer1();
-		createPiecePlayer2();
-//		appeler FillNewTab à chaque tou
-		FillCheckers(PionPlayer1, PionPlayer2, board);
-
+		Menu.MenuPrincipal(PionPlayer1, PionPlayer2, board);
 //		MovePiecePlayer1();
-		;
-		Utilitary.printMap(board);
+//		Utilitary.printMap(board);
 		
 	}
 	
-//	private void MovePiecePlayer1() {
-//		
-//		for (Pion pion : PionPlayer1) {
-//			System.out.println(pion);
-//		}
-//	}
+	public static void MovePiecePlayer1() {
+		System.out.println("Abscisse X de votre pièce (Entre 0 et 9) : ");
+		int readCoordonneeX = Utilitary.readInt(); 
+		System.out.println("Ordonnée Y de votre pièce (Entre 0 et 9) : ");
+		int readCoordonneeY = Utilitary.readInt(); 
+		System.out.println("Vous avez choisi la pièce aux coordonnées : " + readCoordonneeX + ","+ readCoordonneeY);
+		for (Pion pionJ1aDeplacer : PionPlayer1) {
+			System.out.println(pionJ1aDeplacer);
+		}
+	}
 	
 	public static char[][] FillCheckers(ArrayList<Pion> PionPlayer1, ArrayList<Pion> PionPlayer2, char[][] Newboard) {
 		for (int i = 0; i < Newboard.length; i++) {
@@ -82,5 +80,5 @@ public class Game {
 			}
 		}	
 	}
-}
 	
+}

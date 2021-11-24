@@ -7,9 +7,8 @@ import models.Pion;
 import utils.Utilitary;
 
 public class Game {
-	static int sizeTabX = 10;
-	static int sizeTabY = 10;
-	static char [][] board = new char[sizeTabX][sizeTabY];
+	static int sizeTab = 10;
+	static char [][] board = new char[sizeTab][sizeTab];
 	
 	static ArrayList<Pion> PionPlayer1 = new ArrayList<Pion>();
 	static ArrayList<Pion> PionPlayer2 = new ArrayList<Pion>();
@@ -18,19 +17,64 @@ public class Game {
 		Menu.MenuPrincipal(PionPlayer1, PionPlayer2, board);
 //		MovePiecePlayer1();
 //		Utilitary.printMap(board);
+		test();
 		
 	}
+//	
+//	public static void MovePiecePlayer1() {
+//		System.out.println("Abscisse X de votre pièce (Entre 0 et 9) : ");
+//		int readCoordonneeX = Utilitary.readInt(); 
+//		System.out.println("Ordonnée Y de votre pièce (Entre 0 et 9) : ");
+//		int readCoordonneeY = Utilitary.readInt(); 
+//		System.out.println("Verification de l'existance de la pièce aux coordonnées : " + readCoordonneeX + ","+ readCoordonneeY);
+//		
+//		for (Pion pionAdeplacer : PionPlayer1) {
+//			if(pionAdeplacer.getPosX() == readCoordonneeX && pionAdeplacer.getPosY() == readCoordonneeY) {
+//				System.out.println(pionAdeplacer);
+//				System.out.println("Votre pièce existe.");
+//				System.out.println("Où souhaitez-vous déplacer votre pièce ? ");
+//				System.out.println("Abscisse X (Entre 0 et 9) : ");
+//				int coordonneeX = Utilitary.readInt(); 
+//				System.out.println("Ordonnée Y (Entre 0 et 9) : ");
+//				int coordonneeY = Utilitary.readInt(); 
+//				PionPlayer1.remove(pionAdeplacer);
+//				pionAdeplacer.setPosX(coordonneeX);
+//				pionAdeplacer.setPosY(coordonneeY);
+//				PionPlayer1.add(pionAdeplacer);
+//				
+//			} 			
+//		}
+//		
+//	}
 	
-	public static void MovePiecePlayer1() {
+	public static void test() {
 		System.out.println("Abscisse X de votre pièce (Entre 0 et 9) : ");
 		int readCoordonneeX = Utilitary.readInt(); 
 		System.out.println("Ordonnée Y de votre pièce (Entre 0 et 9) : ");
 		int readCoordonneeY = Utilitary.readInt(); 
-		System.out.println("Vous avez choisi la pièce aux coordonnées : " + readCoordonneeX + ","+ readCoordonneeY);
-		for (Pion pionJ1aDeplacer : PionPlayer1) {
-			System.out.println(pionJ1aDeplacer);
+		System.out.println("Verification de l'existance de la pièce aux coordonnées : " + readCoordonneeX + ","+ readCoordonneeY);
+		
+		for (Pion pionAdeplacer : PionPlayer1) {
+			if(pionAdeplacer.getPosX() == readCoordonneeX && pionAdeplacer.getPosY() == readCoordonneeY) {
+//				PionPlayer1.remove(pionAdeplacer);
+				System.out.println("Abscisse X (Entre 0 et 9) : ");
+				int coordonneeX = Utilitary.readInt(); 
+				System.out.println("Ordonnée Y (Entre 0 et 9) : ");
+				int coordonneeY = Utilitary.readInt(); 
+//				PionPlayer1.add(pionAdeplacer);
+				pionAdeplacer.setPosX(coordonneeX);
+				pionAdeplacer.setPosY(coordonneeY);
+				System.out.println(pionAdeplacer);
+					
+				}
+			}
+		
+			for (Pion pion : PionPlayer1) {
+				System.out.println(pion);
+				
+			}
 		}
-	}
+	
 	
 	public static char[][] FillCheckers(ArrayList<Pion> PionPlayer1, ArrayList<Pion> PionPlayer2, char[][] Newboard) {
 		for (int i = 0; i < Newboard.length; i++) {

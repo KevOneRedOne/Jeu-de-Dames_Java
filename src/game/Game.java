@@ -19,7 +19,7 @@ public class Game {
 		createPiecePlayer1();
 		createPiecePlayer2();
 //		appeler FillNewTab à chaque tou
-		FillNewTab(PionPlayer1, PionPlayer2, board);
+		FillCheckers(PionPlayer1, PionPlayer2, board);
 
 //		MovePiecePlayer1();
 		;
@@ -34,7 +34,7 @@ public class Game {
 //		}
 //	}
 	
-	public char[][] FillNewTab(ArrayList<Pion> PionPlayer1, ArrayList<Pion> PionPlayer2, char[][] Newboard) {
+	public static char[][] FillCheckers(ArrayList<Pion> PionPlayer1, ArrayList<Pion> PionPlayer2, char[][] Newboard) {
 		for (int i = 0; i < Newboard.length; i++) {
 			for (int j = 0; i <Newboard.length; i++) {
 				Newboard[i][j] = ' ' ;	

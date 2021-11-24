@@ -49,24 +49,6 @@ public class Game {
 		return Newboard; 
 	}
 	
-	
-	public static void createPiecePlayer2() {	
-		for (int row = 0; row <= 3 ; row++) {
-			for (int col = 0; col < board.length; col++) {
-				if (row%2==0) {
-					if (col%2 == 1) {
-						PionPlayer2.add(new Pion('X', col, row, true, "black"));
-					}
-				}
-				if (row%2==1) {
-					if (col%2==0) {
-						PionPlayer2.add(new Pion('X', col, row, true, "black"));
-					}
-				}
-			}
-		}	
-	}
-	
 	public static void createPiecePlayer1() {	
 		for (int row = 6 ; row <= 9; row++) {
 			for (int col = 0; col < board.length; col++) {
@@ -83,4 +65,22 @@ public class Game {
 			}
 		}	
 	}
+
+	public static void createPiecePlayer2() {	
+		for (int row = 0; row <= 3 ; row++) {
+			for (int col = 0; col < board.length; col++) {
+				if (row%2==0) {
+					if (col%2 == 1) {
+						PionPlayer2.add(new Pion('X', col, row, true, "black"));
+					}
+				}
+				if (row%2==1) {
+					if (col%2==0) {
+						PionPlayer2.add(new Pion('X', col, row, true, "black"));
+					}
+				}
+			}
+		}	
+	}
 }
+	

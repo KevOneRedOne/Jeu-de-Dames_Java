@@ -17,8 +17,9 @@ public class Menu {
 		
 			switch (Utilitary.inputUsers()) {
 			case "1":
-				Game.createPieceIA();
 				Game.createPiecePlayer1();
+				Game.createPiecePlayer2();
+				
 				System.out.println("Quel est le nom du joueur ?");
 				String name = Utilitary.inputUsers();
 				System.out.println("Nom joueur " + name);

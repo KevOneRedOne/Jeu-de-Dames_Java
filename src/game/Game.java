@@ -13,49 +13,43 @@ public class Game {
 	
 	static ArrayList<Pion> PionPlayer1 = new ArrayList<Pion>();
 	static ArrayList<Pion> PionPlayer2 = new ArrayList<Pion>();
-	static ArrayList<Pion> PionIA = new ArrayList<Pion>();
 	
 	public void launchGame() {
-		Menu.MenuPrincipal();
-		
-		Utilitary.fillBoard(board);
-		createPieceIA();
+//		Menu.MenuPrincipal();
 		createPiecePlayer1();
-		MovePiecePlayer1();
+		createPiecePlayer2();
+//		appeler FillNewTab à chaque tou
+		FillNewTab(PionPlayer1, PionPlayer2, board);
+
+//		MovePiecePlayer1();
+		;
 		Utilitary.printMap(board);
 		
 	}
 	
-	private void MovePiecePlayer1() {
-		
-		for (Pion pion : PionPlayer1) {
-			System.out.println(pion);
-		}
-	}
+//	private void MovePiecePlayer1() {
+//		
+//		for (Pion pion : PionPlayer1) {
+//			System.out.println(pion);
+//		}
+//	}
 	
-	
-	
-	
-	
-	public static void createPieceIA() {	
-		for (int row = 0; row <= 3 ; row++) {
-			for (int col = 0; col < board.length; col++) {
-                if (row%2==0) {
-                    if (col%2 == 1) {
-                        PionIA.add(new Pion('X', col, row, false, "black"));
-                    }
-                }
-                if (row%2==1) {
-                    if (col%2==0) {
-                        PionIA.add(new Pion('X', col, row, false, "black"));
-                    }
-                }
+	public char[][] FillNewTab(ArrayList<Pion> PionPlayer1, ArrayList<Pion> PionPlayer2, char[][] Newboard) {
+		for (int i = 0; i < Newboard.length; i++) {
+			for (int j = 0; i <Newboard.length; i++) {
+				Newboard[i][j] = ' ' ;	
 			}
-		}	
-		for (Pion listPionIA : PionIA) {
-			board[listPionIA.getPosX()][listPionIA.getPosY()] = listPionIA.getTypePiece();
 		}
+		for(Pion J1Pion : PionPlayer1) {
+			Newboard[J1Pion.getPosX()][J1Pion.getPosY()] = J1Pion.getTypePiece();			
+		}
+		for(Pion J2Pion : PionPlayer2) {
+			Newboard[J2Pion.getPosX()][J2Pion.getPosY()] = J2Pion.getTypePiece();			
+		}
+		return Newboard; 
 	}
+	
+	
 	public static void createPiecePlayer2() {	
 		for (int row = 0; row <= 3 ; row++) {
 			for (int col = 0; col < board.length; col++) {
@@ -71,9 +65,6 @@ public class Game {
 				}
 			}
 		}	
-		for (Pion listPionJ2 : PionPlayer2) {
-			board[listPionJ2.getPosX()][listPionJ2.getPosY()] = listPionJ2.getTypePiece();
-		}
 	}
 	
 	public static void createPiecePlayer1() {	
@@ -91,8 +82,5 @@ public class Game {
 				}
 			}
 		}	
-		for (Pion listPionJ1 : PionPlayer1) {
-			board[listPionJ1.getPosX()][listPionJ1.getPosY()] = listPionJ1.getTypePiece();
-		}
 	}
 }

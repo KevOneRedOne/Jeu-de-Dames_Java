@@ -2,16 +2,20 @@ package menu;
 
 import utils.Utilitary;
 import java.util.ArrayList;
+import java.util.HashMap;
+
 import game.Game;
 import models.Pion;
 
 public class Menu {
 	
-	public static void MenuPrincipal(ArrayList<Pion> PionPlayer1, ArrayList<Pion> PionPlayer2, char[][] board) {
+	public static void MenuPrincipal(ArrayList<Pion> PlayerPionJ1, ArrayList<Pion> PlayerPionJ2, char[][] board) {
 		boolean isGameOn = true;
 		boolean NotGamerOver = true;
 		int tour = 1;
 		System.out.print("Bonjour !\nBienvenue dans notre jeu de Dames en invite de commande !\nQue souhaitez-vous faire ?\n");
+		Game.createPiecePlayer1(PlayerPionJ1);
+		Game.createPiecePlayer2(PlayerPionJ2);
 		
 		do {
 			System.out.println("1 - Jouer contre l'ordinateur.");
@@ -29,18 +33,17 @@ public class Menu {
 				}
 				System.out.println("\nBonjour " + PlayerName);
 				System.out.println("\nPour jouer :\nSelectionnez les coordonnées X et Y du pion que vous voulez jouer !\nPuis indiquez la case ou vous voulez mettre votre pièce, toujours avec des coordonées !\n");
-				Game.createPiecePlayer1();
-				Game.createPiecePlayer2();
 				while (NotGamerOver) {
-					Game.FillCheckers(PionPlayer1, PionPlayer2, board);
 					Utilitary.printMap(board);
+					Game.FillCheckers(PlayerPionJ1, PlayerPionJ2, board);
 					System.out.println("Tour : "+ tour + "\n" + PlayerName + ", vous avez les pions : O " );
 					System.out.println("L'adversaire possède les pions : X ");
 //					Game.MovePiecePlayer1();
-					Game.test();
+					Game.test(PlayerPionJ1);
+					tour++;
 //					NotGamerOver = false;
+					
 				}
-//				Utilitary.printMap(board);
 				break;
 				
 			case "2":

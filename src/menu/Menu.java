@@ -34,8 +34,8 @@ public class Menu {
 				System.out.println("\nBonjour " + PlayerName);
 				System.out.println("\nPour jouer :\nSelectionnez les coordonnées X et Y du pion que vous voulez jouer !\nPuis indiquez la case ou vous voulez mettre votre pièce, toujours avec des coordonées !\n");
 				while (NotGamerOver) {
-					Utilitary.printMap(board);
 					Game.FillCheckers(PlayerPionJ1, PlayerPionJ2, board);
+					Utilitary.printMap(board);
 					System.out.println("Tour : "+ tour + "\n" + PlayerName + ", vous avez les pions : O " );
 					System.out.println("L'adversaire possède les pions : X ");
 //					Game.MovePiecePlayer1();

@@ -37,7 +37,7 @@ public class Game {
 				pion.setPosX(NewCoordonneeX);
 				pion.setPosY(NewCoordonneeY);
 			} else {
-				System.out.println("Votre pion n'exite pas.\nRecommencez une dernière fois, avant de passer votre tour ! ");
+				System.out.println("Votre pion n'existe pas.\nRecommencez une dernière fois, avant de passer votre tour ! ");
 				System.out.println("Abscisse X de votre pièce (Entre 0 et 9) : ");
 				readCoordonneeX = Utilitary.readInt(); 
 				System.out.println("Ordonnée Y de votre pièce (Entre 0 et 9) : ");

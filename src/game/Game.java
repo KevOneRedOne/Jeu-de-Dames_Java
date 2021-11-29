@@ -36,7 +36,25 @@ public class Game {
 				int NewCoordonneeY = Utilitary.readInt(); 
 				pion.setPosX(NewCoordonneeX);
 				pion.setPosY(NewCoordonneeY);
-			} 
+			} else {
+				System.out.println("Votre pion n'exite pas.\nRecommencez une dernière fois, avant de passer votre tour ! ");
+				System.out.println("Abscisse X de votre pièce (Entre 0 et 9) : ");
+				readCoordonneeX = Utilitary.readInt(); 
+				System.out.println("Ordonnée Y de votre pièce (Entre 0 et 9) : ");
+				readCoordonneeY = Utilitary.readInt(); 
+				for (Pion pion2 : PionPlayer) {
+					if (readCoordonneeX == pion2.getPosX() && readCoordonneeY == pion2.getPosY()) {
+						System.out.println("Où souhaitez-vous déplacer votre pièce ? ");
+						System.out.println("Abscisse X (Entre 0 et 9) : ");
+						int NewCoordonneeX = Utilitary.readInt(); 
+						System.out.println("Ordonnée Y (Entre 0 et 9) : ");
+						int NewCoordonneeY = Utilitary.readInt(); 
+						pion2.setPosX(NewCoordonneeX);
+						pion2.setPosY(NewCoordonneeY);
+					}
+				}
+			}
+			break;
 		}					
 	}
 	

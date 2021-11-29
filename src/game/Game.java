@@ -57,9 +57,7 @@ public class Game {
 			break;
 		}					
 	}
-	
-	
-	
+		
 	
 	
 	

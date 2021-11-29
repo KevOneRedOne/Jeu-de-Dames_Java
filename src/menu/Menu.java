@@ -44,6 +44,8 @@ public class Menu {
 					Game.MovePiecePlayer(PlayerPionJ1);
 					System.out.println("Tour : "+ tour + "\n"+ "L'ordinateur joue !" );
 //					TODO Faire fonction deplacement IA
+					
+					
 					Utilitary.CheckGameOver(NotGamerOver, PlayerPionJ1, PlayerPionJ2);
 					tour++;
 				}
@@ -59,7 +61,7 @@ public class Menu {
 					Player1Name = "Joueur 1";
 				}
 				if ( Player2Name == null || Player2Name =="") {
-					Player2Name = "Joueur 1";
+					Player2Name = "Joueur 2";
 				}
 				System.out.println("\nBonjour " + Player1Name + " et " + Player2Name + " !");
 				System.out.println("\nPour jouer :\nSelectionnez les coordonnées X et Y du pion que vous voulez jouer !\nPuis indiquez la case ou vous voulez mettre votre pièce, toujours avec des coordonées !\n");
@@ -72,7 +74,8 @@ public class Menu {
 					Game.MovePiecePlayer(PlayerPionJ1);
 					System.out.println("\n"+ Player2Name+" choisissez votre pièce :");
 					Game.MovePiecePlayer(PlayerPionJ2);
-					
+//					TODO Faire fonction pour verifier la case suivante
+//					TODO Faire fonction pour prendre un pion
 					
 					Utilitary.CheckGameOver(NotGamerOver, PlayerPionJ1, PlayerPionJ2);
 					tour++;

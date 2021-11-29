@@ -1,6 +1,9 @@
 package utils;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+
+import models.Pion;
 
 public class Utilitary {
 	
@@ -17,6 +20,16 @@ public class Utilitary {
 			counter++;
 		}
 	}
+	
+	public static boolean CheckGameOver(boolean NotGameOver, ArrayList<Pion> PlayerPionJ1, ArrayList<Pion> PlayerPionJ2) {
+		if (PlayerPionJ1 == null || PlayerPionJ2 == null) {
+			NotGameOver = false ;
+		}
+		NotGameOver = true;
+		return NotGameOver;
+			
+	}
+	
 	
 	public static String inputUsers(){
     	Scanner sc = new Scanner(System.in);

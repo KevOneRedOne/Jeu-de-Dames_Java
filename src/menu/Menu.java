@@ -39,17 +39,27 @@ public class Menu {
 					System.out.println("Tour : "+ tour + "\n" + PlayerName + ", vous avez les pions : O " );
 					System.out.println("L'adversaire possède les pions : X ");
 					System.out.println("\nChoisissez votre pièce :");
-					
-//					Game.MovePiecePlayer1();
-//					Game.test(PlayerPionJ1);
 					Game.MovePiecePlayer1(PlayerPionJ1);
-					tour++;
-//					NotGamerOver = false;
 					
+					Utilitary.CheckGameOver(NotGamerOver, PlayerPionJ1, PlayerPionJ2);
+					tour++;
 				}
 				break;
 				
 			case "2":
+				System.out.println("Quel est le nom du joueur 1 ?");
+				String Player1Name = Utilitary.inputUsers();
+				System.out.println("Quel est le nom du joueur 2 ?");
+				String Player2Name = Utilitary.inputUsers();
+
+				if ( Player1Name == null || Player1Name =="") {
+					Player1Name = "Joueur 1";
+				}
+				if ( Player2Name == null || Player2Name =="") {
+					Player2Name = "Joueur 1";
+				}
+				System.out.println("\nBonjour " + Player1Name + "et" + Player2Name);
+				System.out.println("\nPour jouer :\nSelectionnez les coordonnées X et Y du pion que vous voulez jouer !\nPuis indiquez la case ou vous voulez mettre votre pièce, toujours avec des coordonées !\n");
 			
 				break;
 				

@@ -14,6 +14,7 @@ public class Game {
 	
 	public void launchGame() {
 		Menu.MenuPrincipal(PionPlayer1, PionPlayer2, board);	
+	
 	}
 	
 	
@@ -33,6 +34,7 @@ public class Game {
 				int NewCoordonneeY = Utilitary.readInt(); 
 				pion.setPosX(NewCoordonneeX);
 				pion.setPosY(NewCoordonneeY);
+				CheckNextPos(NewCoordonneeX, NewCoordonneeY);
 			} else {
 				System.out.println("Votre pion n'existe pas.\nRecommencez une dernière fois, avant de passer votre tour ! ");
 				System.out.println("Abscisse X de votre pièce (Entre 0 et 9) : ");
@@ -48,6 +50,7 @@ public class Game {
 						int NewCoordonneeY = Utilitary.readInt(); 
 						pion2.setPosX(NewCoordonneeX);
 						pion2.setPosY(NewCoordonneeY);
+						CheckNextPos(NewCoordonneeX, NewCoordonneeY);
 					}
 				}
 			}
@@ -55,7 +58,18 @@ public class Game {
 		}					
 	}
 		
-	
+//	TODO Fonction pour checker la case suivante avec les coordonnées
+	public static void CheckNextPos(int posX, int posY) {
+		for (int i = 0; i < board.length; i++) {
+			for (int j = 0; j < board.length; j++) {
+				if (posX == i && posY == j) {
+					System.out.print(i);
+					System.out.print(j);
+				}
+				
+			}
+		}
+	}
 	
 	
 	

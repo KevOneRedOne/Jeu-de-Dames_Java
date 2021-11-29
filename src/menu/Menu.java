@@ -15,6 +15,11 @@ public class Menu {
 		boolean NotGamerOver = true;
 		int tour = 1;
 		System.out.print("Bonjour !\nBienvenue dans notre jeu de Dames en invite de commande !\nQue souhaitez-vous faire ?\n");
+		try {
+			Utilitary.CreateFile();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		Game.createPiecePlayer1(PlayerPionJ1);
 		Game.createPiecePlayer2(PlayerPionJ2);
 		
@@ -26,11 +31,6 @@ public class Menu {
 		
 			switch (Utilitary.inputUsers()) {
 			case "1":
-				try {
-					Utilitary.CreateFile();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
 				System.out.println("Quel est le nom du joueur ?");
 				String PlayerName = Utilitary.inputUsers();
 				
@@ -47,7 +47,7 @@ public class Menu {
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
-					System.out.println("Tour : "+ tour + "\n" + PlayerName + ", vous avez les pions : O " );
+					System.out.println("\nTour : "+ tour + "\n" + PlayerName + ", vous avez les pions : O " );
 					System.out.println("L'adversaire possède les pions : X ");
 					System.out.println("\nChoisissez votre pièce :");
 					Game.MovePiecePlayer(PlayerPionJ1);
@@ -92,7 +92,7 @@ public class Menu {
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
-					System.out.println("Tour : "+ tour + "\n" + Player1Name + ", vous avez les pions : O " );
+					System.out.println("\nTour : "+ tour + "\n" + Player1Name + ", vous avez les pions : O " );
 					System.out.println(Player2Name + ", vous avez les pions : X ");
 					System.out.println("\n"+ Player1Name+" choisissez votre pièce :");
 					Game.MovePiecePlayer(PlayerPionJ1);

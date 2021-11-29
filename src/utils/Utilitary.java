@@ -65,6 +65,7 @@ public class Utilitary {
 		fw.write(data);
 		fw.close();
 	}
+	
 	public static void WriteBoardToFile(char[][] myBoard) throws IOException {
 		StringBuilder builder = new StringBuilder();
 		FileWriter fw = new FileWriter("gameLogs.txt");

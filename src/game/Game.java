@@ -1,11 +1,8 @@
 package game;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-
 import menu.Menu;
 import models.Pion;
-//import utils.Utilitary;
 import utils.Utilitary;
 
 public class Game {

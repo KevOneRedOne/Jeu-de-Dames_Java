@@ -4,9 +4,6 @@ import utils.Utilitary;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
-
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.TitlePaneLayout;
 
 import game.Game;
 import models.Pion;

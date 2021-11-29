@@ -4,6 +4,8 @@ import utils.Utilitary;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.TitlePaneLayout;
+
 import game.Game;
 import models.Pion;
 
@@ -39,8 +41,9 @@ public class Menu {
 					System.out.println("Tour : "+ tour + "\n" + PlayerName + ", vous avez les pions : O " );
 					System.out.println("L'adversaire possède les pions : X ");
 					System.out.println("\nChoisissez votre pièce :");
-					Game.MovePiecePlayer1(PlayerPionJ1);
-					
+					Game.MovePiecePlayer(PlayerPionJ1);
+					System.out.println("Tour : "+ tour + "\n"+ "L'ordinateur joue !" );
+//					TODO Faire fonction deplacement IA
 					Utilitary.CheckGameOver(NotGamerOver, PlayerPionJ1, PlayerPionJ2);
 					tour++;
 				}
@@ -58,9 +61,22 @@ public class Menu {
 				if ( Player2Name == null || Player2Name =="") {
 					Player2Name = "Joueur 1";
 				}
-				System.out.println("\nBonjour " + Player1Name + "et" + Player2Name);
+				System.out.println("\nBonjour " + Player1Name + " et " + Player2Name + " !");
 				System.out.println("\nPour jouer :\nSelectionnez les coordonnées X et Y du pion que vous voulez jouer !\nPuis indiquez la case ou vous voulez mettre votre pièce, toujours avec des coordonées !\n");
-			
+				while (NotGamerOver) {
+					board = Game.FillCheckers(PlayerPionJ1, PlayerPionJ2);
+					Utilitary.printMap(board);
+					System.out.println("Tour : "+ tour + "\n" + Player1Name + ", vous avez les pions : O " );
+					System.out.println(Player2Name + ", vous avez les pions : X ");
+					System.out.println("\n"+ Player1Name+" choisissez votre pièce :");
+					Game.MovePiecePlayer(PlayerPionJ1);
+					System.out.println("\n"+ Player2Name+" choisissez votre pièce :");
+					Game.MovePiecePlayer(PlayerPionJ2);
+					
+					
+					Utilitary.CheckGameOver(NotGamerOver, PlayerPionJ1, PlayerPionJ2);
+					tour++;
+				}
 				break;
 				
 			case "3":

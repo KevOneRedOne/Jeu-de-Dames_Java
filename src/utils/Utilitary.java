@@ -26,8 +26,7 @@ public class Utilitary {
 			NotGameOver = false ;
 		}
 		NotGameOver = true;
-		return NotGameOver;
-			
+		return NotGameOver;		
 	}
 	
 	

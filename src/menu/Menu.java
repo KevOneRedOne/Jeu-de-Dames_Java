@@ -1,6 +1,8 @@
 package menu;
 
 import utils.Utilitary;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -27,6 +29,11 @@ public class Menu {
 		
 			switch (Utilitary.inputUsers()) {
 			case "1":
+				try {
+					Utilitary.CreateFile();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 				System.out.println("Quel est le nom du joueur ?");
 				String PlayerName = Utilitary.inputUsers();
 				
@@ -38,10 +45,20 @@ public class Menu {
 				while (NotGamerOver) {
 					board = Game.FillCheckers(PlayerPionJ1, PlayerPionJ2);
 					Utilitary.printMap(board);
+					try {
+						Utilitary.WriteBoardToFile(board);
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
 					System.out.println("Tour : "+ tour + "\n" + PlayerName + ", vous avez les pions : O " );
 					System.out.println("L'adversaire possède les pions : X ");
 					System.out.println("\nChoisissez votre pièce :");
 					Game.MovePiecePlayer(PlayerPionJ1);
+					try {
+						Utilitary.WriteBoardToFile(board);
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
 					System.out.println("Tour : "+ tour + "\n"+ "L'ordinateur joue !" );
 //					TODO Faire fonction deplacement IA
 					Utilitary.CheckGameOver(NotGamerOver, PlayerPionJ1, PlayerPionJ2);
@@ -50,6 +67,11 @@ public class Menu {
 				break;
 				
 			case "2":
+				try {
+					Utilitary.CreateFile();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 				System.out.println("Quel est le nom du joueur 1 ?");
 				String Player1Name = Utilitary.inputUsers();
 				System.out.println("Quel est le nom du joueur 2 ?");
@@ -66,6 +88,11 @@ public class Menu {
 				while (NotGamerOver) {
 					board = Game.FillCheckers(PlayerPionJ1, PlayerPionJ2);
 					Utilitary.printMap(board);
+					try {
+						Utilitary.WriteBoardToFile(board);
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
 					System.out.println("Tour : "+ tour + "\n" + Player1Name + ", vous avez les pions : O " );
 					System.out.println(Player2Name + ", vous avez les pions : X ");
 					System.out.println("\n"+ Player1Name+" choisissez votre pièce :");

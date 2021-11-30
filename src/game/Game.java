@@ -36,9 +36,7 @@ public class Game {
 					pion.setPosX(NewCoordonneeX);
 					pion.setPosY(NewCoordonneeY);	
 				} 
-				System.out.println("Next Coordonnée indisponible");
-				pion.setPosX(readCoordonneeX);
-				pion.setPosY(readCoordonneeY);
+				System.out.print("Next Coordonnée indisponible");
 			} else {
 				System.out.println("Votre pion n'existe pas.\nRecommencez une dernière fois, avant de passer votre tour ! ");
 				System.out.println("Abscisse X de votre pièce (Entre 0 et 9) : ");
@@ -57,8 +55,6 @@ public class Game {
 							pion2.setPosY(NewCoordonneeY);	
 						} 
 						System.out.println("Next Coordonnée indisponible");
-						pion2.setPosX(readCoordonneeX);
-						pion2.setPosY(readCoordonneeY);	
 					}
 				}
 			}

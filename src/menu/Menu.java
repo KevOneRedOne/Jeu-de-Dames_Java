@@ -51,13 +51,13 @@ public class Menu {
 					System.out.println("\nTour : "+ tour + "\n" + PlayerName + ", vous avez les pions : O " );
 					System.out.println("L'adversaire possède les pions : X ");
 					System.out.println("\nChoisissez votre pièce :");
-					Game.MovePiecePlayer(PlayerPionJ1);
+					Game.MovePiecePlayer(PlayerPionJ1, PlayerPionJ2);
+					System.out.println("Tour : "+ tour + "\n"+ "L'ordinateur joue !" );
 					try {
 						Utilitary.WriteBoardToFile(board);
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
-					System.out.println("Tour : "+ tour + "\n"+ "L'ordinateur joue !" );
 //					TODO Faire fonction deplacement IA
 //					TODO Faire fonction pour verifier la case suivante
 //					TODO Faire fonction pour prendre un pion
@@ -97,9 +97,9 @@ public class Menu {
 					System.out.println("\nTour : "+ tour + "\n" + Player1Name + ", vous avez les pions : O " );
 					System.out.println(Player2Name + ", vous avez les pions : X ");
 					System.out.println("\n"+ Player1Name+" choisissez votre pièce :");
-					Game.MovePiecePlayer(PlayerPionJ1);
+					Game.MovePiecePlayer(PlayerPionJ1, PlayerPionJ2);
 					System.out.println("\n"+ Player2Name+" choisissez votre pièce :");
-					Game.MovePiecePlayer(PlayerPionJ2);
+					Game.MovePiecePlayer(PlayerPionJ2, PlayerPionJ1);
 //					TODO Faire fonction pour verifier la case suivante
 //					TODO Faire fonction pour prendre un pion
 					

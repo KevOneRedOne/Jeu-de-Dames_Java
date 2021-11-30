@@ -1,5 +1,6 @@
 package game;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import menu.Menu;
 import models.Pion;
@@ -17,8 +18,7 @@ public class Game {
 	
 	}
 	
-	
-	public static void MovePiecePlayer(ArrayList<Pion> PionPlayer) {
+	public static void MovePiecePlayer(ArrayList<Pion> PionPlayer, ArrayList<Pion> PionPlayerNext) {
 		System.out.println("Abscisse X de votre pièce (Entre 0 et 9) : ");
 		int readCoordonneeX = Utilitary.readInt(); 
 		System.out.println("Ordonnée Y de votre pièce (Entre 0 et 9) : ");
@@ -32,9 +32,13 @@ public class Game {
 				int NewCoordonneeX = Utilitary.readInt(); 
 				System.out.println("Ordonnée Y (Entre 0 et 9) : ");
 				int NewCoordonneeY = Utilitary.readInt(); 
-				pion.setPosX(NewCoordonneeX);
-				pion.setPosY(NewCoordonneeY);
-				CheckNextPos(NewCoordonneeX, NewCoordonneeY);
+				if (CheckNextPos(NewCoordonneeX, NewCoordonneeY, PionPlayer, PionPlayerNext)== true) {
+					pion.setPosX(NewCoordonneeX);
+					pion.setPosY(NewCoordonneeY);	
+				} 
+				System.out.println("Next Coordonnée indisponible");
+				pion.setPosX(readCoordonneeX);
+				pion.setPosY(readCoordonneeY);
 			} else {
 				System.out.println("Votre pion n'existe pas.\nRecommencez une dernière fois, avant de passer votre tour ! ");
 				System.out.println("Abscisse X de votre pièce (Entre 0 et 9) : ");
@@ -48,9 +52,13 @@ public class Game {
 						int NewCoordonneeX = Utilitary.readInt(); 
 						System.out.println("Ordonnée Y (Entre 0 et 9) : ");
 						int NewCoordonneeY = Utilitary.readInt(); 
-						pion2.setPosX(NewCoordonneeX);
-						pion2.setPosY(NewCoordonneeY);
-						CheckNextPos(NewCoordonneeX, NewCoordonneeY);
+						if (CheckNextPos(NewCoordonneeX, NewCoordonneeY, PionPlayer, PionPlayerNext)== true) {
+							pion2.setPosX(NewCoordonneeX);
+							pion2.setPosY(NewCoordonneeY);	
+						} 
+						System.out.println("Next Coordonnée indisponible");
+						pion2.setPosX(readCoordonneeX);
+						pion2.setPosY(readCoordonneeY);	
 					}
 				}
 			}
@@ -58,16 +66,24 @@ public class Game {
 		}					
 	}
 	
-	public static void CheckNextPos(int posX, int posY) {
-		for (int i = 0; i < board.length; i++) {
-			for (int j = 0; j < board.length; j++) {
-				if (posX == i && posY == j) {
-					System.out.print(i);
-					System.out.print(j);
-				}
-				
+	public static boolean CheckNextPos(int posX, int posY, ArrayList<Pion> PionPlayer1 , ArrayList<Pion> PionPlayer2) {
+		boolean ItsOktoMove = true;
+		for (Pion pion : PionPlayer2) {
+			if (posX == pion.getPosX() && posY == pion.getPosY()) {
+				ItsOktoMove = false;
 			}
+			ItsOktoMove = true;
 		}
+		return ItsOktoMove;
+		
+//		for (Pion pion : PionPlayer1) {
+//			if (posX == pion.getPosX() && posY == pion.getPosY()) {
+//				return false;
+//			}
+//			return true;
+//		}
+//		
+//		return false;
 	}
 	
 

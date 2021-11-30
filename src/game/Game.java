@@ -1,6 +1,5 @@
 package game;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import menu.Menu;
 import models.Pion;
@@ -19,6 +18,7 @@ public class Game {
 	}
 	
 	public static void MovePiecePlayer(ArrayList<Pion> PionPlayer, ArrayList<Pion> PionPlayerNext) {
+//		boolean checkmove = false; 
 		System.out.println("Abscisse X de votre pièce (Entre 0 et 9) : ");
 		int readCoordonneeX = Utilitary.readInt(); 
 		System.out.println("Ordonnée Y de votre pièce (Entre 0 et 9) : ");
@@ -32,11 +32,14 @@ public class Game {
 				int NewCoordonneeX = Utilitary.readInt(); 
 				System.out.println("Ordonnée Y (Entre 0 et 9) : ");
 				int NewCoordonneeY = Utilitary.readInt(); 
-				if (CheckNextPos(NewCoordonneeX, NewCoordonneeY, PionPlayer, PionPlayerNext)== true) {
+//				TODO Function CheckNextPos, in progress..
+				if (CheckNextPos(NewCoordonneeX, NewCoordonneeY, PionPlayer, PionPlayerNext)) {
 					pion.setPosX(NewCoordonneeX);
-					pion.setPosY(NewCoordonneeY);	
-				} 
-				System.out.print("Next Coordonnée indisponible");
+					pion.setPosY(NewCoordonneeY);
+
+				} else {						
+					System.out.println("Déplacement impossible sur ces coordonnées.\nRecommencez !");	
+				}
 			} else {
 				System.out.println("Votre pion n'existe pas.\nRecommencez une dernière fois, avant de passer votre tour ! ");
 				System.out.println("Abscisse X de votre pièce (Entre 0 et 9) : ");
@@ -50,39 +53,55 @@ public class Game {
 						int NewCoordonneeX = Utilitary.readInt(); 
 						System.out.println("Ordonnée Y (Entre 0 et 9) : ");
 						int NewCoordonneeY = Utilitary.readInt(); 
+//						TODO Function CheckNextPos, in progress..
 						if (CheckNextPos(NewCoordonneeX, NewCoordonneeY, PionPlayer, PionPlayerNext)== true) {
 							pion2.setPosX(NewCoordonneeX);
-							pion2.setPosY(NewCoordonneeY);	
-						} 
-						System.out.println("Next Coordonnée indisponible");
-					}
-				}
-			}
+							pion2.setPosY(NewCoordonneeY);
+						} else {								
+							System.out.println("Déplacement impossible sur ces coordonnées.\nRecommencez !");
+						}
+					}				
+				}	
+			}	
 			break;
 		}					
 	}
 	
+	public static void MovePieceIA(ArrayList<Pion> PionIA) {
+		for (Pion pion : PionIA) {
+			System.out.println(pion);
+		}
+	}
+	
+	
+	
+	
 	public static boolean CheckNextPos(int posX, int posY, ArrayList<Pion> PionPlayer1 , ArrayList<Pion> PionPlayer2) {
 		boolean ItsOktoMove = true;
 		for (Pion pion : PionPlayer2) {
-			if (posX == pion.getPosX() && posY == pion.getPosY()) {
-				ItsOktoMove = false;
+			for (Pion pion2 : PionPlayer1) {
+				if (posX == pion.getPosX() && posY == pion.getPosY() || posX == pion2.getPosX() && posY == pion2.getPosY()) {
+					ItsOktoMove = false;				
+				} else {
+					ItsOktoMove = true;					
+				}
 			}
-			ItsOktoMove = true;
 		}
 		return ItsOktoMove;
-		
-//		for (Pion pion : PionPlayer1) {
-//			if (posX == pion.getPosX() && posY == pion.getPosY()) {
-//				return false;
-//			}
-//			return true;
-//		}
-//		
-//		return false;
 	}
 	
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public static char[][] FillCheckers(ArrayList<Pion> PionPlayer1, ArrayList<Pion> PionPlayer2) {
 		char [][] Newboard = new char[sizeTab][sizeTab];
 		
@@ -100,17 +119,18 @@ public class Game {
 		return Newboard; 
 	}
 	
+	
 	public static void createPiecePlayer1(ArrayList<Pion> PionPlayer1) {	
 		for (int row = 6 ; row <= 9; row++) {
 			for (int col = 0; col < board.length; col++) {
 				if (row%2==0) {
 					if (col%2 == 1) {
-						PionPlayer1.add(new Pion('O', row, col, true, "white"));
+						PionPlayer1.add(new Pion('O', row, col, "white"));
 					}
 				}
 				if (row%2==1) {
 					if (col%2==0) {
-						PionPlayer1.add(new Pion('O', row, col, true, "white"));
+						PionPlayer1.add(new Pion('O', row, col, "white"));
 					}
 				}
 			}
@@ -122,12 +142,12 @@ public class Game {
 			for (int col = 0; col < board.length; col++) {
 				if (row%2==0) {
 					if (col%2 == 1) {
-						PionPlayer2.add(new Pion('X', row, col, true, "black"));
+						PionPlayer2.add(new Pion('X', row, col, "black"));
 					}
 				}
 				if (row%2==1) {
 					if (col%2==0) {
-						PionPlayer2.add(new Pion('X', row, col, true, "black"));
+						PionPlayer2.add(new Pion('X', row, col, "black"));
 					}
 				}
 			}

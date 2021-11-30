@@ -1,10 +1,8 @@
 package menu;
 
 import utils.Utilitary;
-
 import java.io.IOException;
 import java.util.ArrayList;
-
 import game.Game;
 import models.Pion;
 
@@ -43,27 +41,23 @@ public class Menu {
 				while (NotGamerOver) {
 					board = Game.FillCheckers(PlayerPionJ1, PlayerPionJ2);
 					Utilitary.printMap(board);
-					try {
-						Utilitary.WriteBoardToFile(board);
-					} catch (IOException e1) {
-						e1.printStackTrace();
-					}
 					System.out.println("\nTour : "+ tour + "\n" + PlayerName + ", vous avez les pions : O " );
 					System.out.println("L'adversaire possède les pions : X ");
 					System.out.println("\nChoisissez votre pièce :");
 					Game.MovePiecePlayer(PlayerPionJ1, PlayerPionJ2);
 					System.out.println("Tour : "+ tour + "\n"+ "L'ordinateur joue !" );
+//					TODO Function MovePieceIA, Work in progress..
+					Game.MovePieceIA(PlayerPionJ2);
+
+//					TODO Faire fonction pour prendre un pion
+					
+					Utilitary.CheckGameOver(NotGamerOver, PlayerPionJ1, PlayerPionJ2);
+					tour++;
 					try {
 						Utilitary.WriteBoardToFile(board);
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
-//					TODO Faire fonction deplacement IA
-//					TODO Faire fonction pour verifier la case suivante
-//					TODO Faire fonction pour prendre un pion
-					
-					Utilitary.CheckGameOver(NotGamerOver, PlayerPionJ1, PlayerPionJ2);
-					tour++;
 				}
 				break;
 				
@@ -89,15 +83,12 @@ public class Menu {
 				while (NotGamerOver) {
 					board = Game.FillCheckers(PlayerPionJ1, PlayerPionJ2);
 					Utilitary.printMap(board);
-					try {
-						Utilitary.WriteBoardToFile(board);
-					} catch (IOException e1) {
-						e1.printStackTrace();
-					}
 					System.out.println("\nTour : "+ tour + "\n" + Player1Name + ", vous avez les pions : O " );
 					System.out.println(Player2Name + ", vous avez les pions : X ");
 					System.out.println("\n"+ Player1Name+" choisissez votre pièce :");
 					Game.MovePiecePlayer(PlayerPionJ1, PlayerPionJ2);
+					board = Game.FillCheckers(PlayerPionJ1, PlayerPionJ2);
+					Utilitary.printMap(board);
 					System.out.println("\n"+ Player2Name+" choisissez votre pièce :");
 					Game.MovePiecePlayer(PlayerPionJ2, PlayerPionJ1);
 //					TODO Faire fonction pour verifier la case suivante
@@ -105,6 +96,11 @@ public class Menu {
 					
 					Utilitary.CheckGameOver(NotGamerOver, PlayerPionJ1, PlayerPionJ2);
 					tour++;
+					try {
+						Utilitary.WriteBoardToFile(board);
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
 				}
 				break;
 				

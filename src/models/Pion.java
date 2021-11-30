@@ -4,8 +4,8 @@ public class Pion extends Piece {
 	
 	String color;
 
-	public Pion(char typePiece, int posX, int posY, boolean controlledbyUser, String color) {
-		super(typePiece, posX, posY, controlledbyUser);
+	public Pion(char typePiece, int posX, int posY, String color) {
+		super(typePiece, posX, posY);
 		this.color = color;
 	}
 
@@ -20,7 +20,7 @@ public class Pion extends Piece {
 	@Override
 	public String toString() {
 		return "Pion [color=" + color + ", typePiece=" + typePiece + ", posX=" + posX + ", posY=" + posY
-				+ ", controlledbyUser=" + controlledbyUser + "]";
+				+ "]";
 	}
 
 	

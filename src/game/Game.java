@@ -1,5 +1,6 @@
 package game;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import menu.Menu;
 import models.Pion;
@@ -18,7 +19,6 @@ public class Game {
 	}
 	
 	public static void MovePiecePlayer(ArrayList<Pion> PionPlayer, ArrayList<Pion> PionPlayerNext) {
-//		boolean checkmove = false; 
 		System.out.println("Abscisse X de votre pièce (Entre 0 et 9) : ");
 		int readCoordonneeX = Utilitary.readInt(); 
 		System.out.println("Ordonnée Y de votre pièce (Entre 0 et 9) : ");
@@ -67,6 +67,8 @@ public class Game {
 		}					
 	}
 	
+	
+//	TODO Function in progress
 	public static void MovePieceIA(ArrayList<Pion> PionIA) {
 		for (Pion pion : PionIA) {
 			System.out.println(pion);
@@ -74,8 +76,7 @@ public class Game {
 	}
 	
 	
-	
-	
+//	TODO Function in progress	
 	public static boolean CheckNextPos(int posX, int posY, ArrayList<Pion> PionPlayer1 , ArrayList<Pion> PionPlayer2) {
 		boolean ItsOktoMove = true;
 		for (Pion pion : PionPlayer2) {
@@ -90,6 +91,10 @@ public class Game {
 		return ItsOktoMove;
 	}
 	
+// TODO Function EatPiece is in progress..
+	public void EatPiece(ArrayList<Pion> PionPlayer1, ArrayList<Pion> PionPlayer2) {
+		
+	}
 
 	
 	
@@ -97,11 +102,7 @@ public class Game {
 	
 	
 	
-	
-	
-	
-	
-	
+
 	public static char[][] FillCheckers(ArrayList<Pion> PionPlayer1, ArrayList<Pion> PionPlayer2) {
 		char [][] Newboard = new char[sizeTab][sizeTab];
 		

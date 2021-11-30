@@ -57,7 +57,6 @@ public class Utilitary {
 			gameLogs.delete();
 		}
 		gameLogs.createNewFile();
-		System.out.println("Pour voir les mouvements rendez-vous dans " + gameLogs.getAbsolutePath());
 	}
 
 	public static void WriteToFile(String data) throws IOException{

@@ -14,7 +14,8 @@ public class Menu {
 		boolean isGameOn = true;
 		boolean NotGamerOver = true;
 		int tour = 1;
-		System.out.print("Bonjour !\nBienvenue dans notre jeu de Dames en invite de commande !\nQue souhaitez-vous faire ?\n");
+		System.out.println("Bonjour !\nBienvenue dans notre jeu de Dames en invite de commande !");
+		System.out.println("Que souhaitez-vous faire ?\n");
 		try {
 			Utilitary.CreateFile();
 		} catch (IOException e) {
@@ -58,7 +59,8 @@ public class Menu {
 					}
 					System.out.println("Tour : "+ tour + "\n"+ "L'ordinateur joue !" );
 //					TODO Faire fonction deplacement IA
-					
+//					TODO Faire fonction pour verifier la case suivante
+//					TODO Faire fonction pour prendre un pion
 					
 					Utilitary.CheckGameOver(NotGamerOver, PlayerPionJ1, PlayerPionJ2);
 					tour++;

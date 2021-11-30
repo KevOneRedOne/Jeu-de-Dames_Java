@@ -7,7 +7,7 @@ import utils.Utilitary;
 
 public class Game {
 	static int sizeTab = 10;
-	 static char [][] board = new char[sizeTab][sizeTab];
+	static char [][] board = new char[sizeTab][sizeTab];
 
 	ArrayList<Pion> PionPlayer1 = new ArrayList<Pion>();
 	ArrayList<Pion> PionPlayer2 = new ArrayList<Pion>();
@@ -57,8 +57,7 @@ public class Game {
 			break;
 		}					
 	}
-		
-//	TODO Fonction pour checker la case suivante avec les coordonnées
+	
 	public static void CheckNextPos(int posX, int posY) {
 		for (int i = 0; i < board.length; i++) {
 			for (int j = 0; j < board.length; j++) {
@@ -71,11 +70,7 @@ public class Game {
 		}
 	}
 	
-	
-	
-	
-	
-	
+
 	public static char[][] FillCheckers(ArrayList<Pion> PionPlayer1, ArrayList<Pion> PionPlayer2) {
 		char [][] Newboard = new char[sizeTab][sizeTab];
 		

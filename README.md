@@ -2,6 +2,8 @@
 Bienvenue dans notre projet de jeu de dame en java
 Un jeu de dame est un jeu opposant deux joueurs dans lequel on déplace des pions sur un damier.
 
+lien github : https://github.com/KevOneRedOne/Jeu-de-Dames_Java/
+
 ## Membres du projet
 - DOS SANTOS ALVES Kévin
 - DJOUDI Yanis

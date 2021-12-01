@@ -3,8 +3,10 @@ package menu;
 import utils.Utilitary;
 import java.io.IOException;
 import java.util.ArrayList;
+
 import game.Game;
 import models.Pion;
+import models.Score;
 
 public class Menu {
 	
@@ -12,13 +14,14 @@ public class Menu {
 		boolean isGameOn = true;
 		boolean NotGamerOver = true;
 		int tour = 1;
+		ArrayList<Score> ListWinner = new ArrayList<Score>();
+		ArrayList<Score> ListLoser = new ArrayList<Score>();
+		
+		Score Winner = new Score("Test", 0, 0, 0);
+		Score Loser = new Score("Test", 0, 0, 0);
 		System.out.println("Bonjour !\nBienvenue dans notre jeu de Dames en invite de commande !");
 		System.out.println("Que souhaitez-vous faire ?\n");
-		try {
-			Utilitary.CreateFile();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		Utilitary.CreateFile("etatPartie.txt");
 		Game.createPiecePlayer1(PlayerPionJ1);
 		Game.createPiecePlayer2(PlayerPionJ2);
 		
@@ -36,6 +39,11 @@ public class Menu {
 				if ( PlayerName == null || PlayerName =="") {
 					PlayerName = "Joueur 1";
 				}
+				try {
+					Utilitary.WriteStringToFile("Nom du joueur : "+ PlayerName + "\n\n");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 				System.out.println("\nBonjour " + PlayerName);
 				System.out.println("\nPour jouer :\nSelectionnez les coordonnées X et Y du pion que vous voulez jouer !\nPuis indiquez la case ou vous voulez mettre votre pièce, toujours avec des coordonées !\n");
 				while (NotGamerOver) {
@@ -52,21 +60,68 @@ public class Menu {
 //					TODO Faire fonction pour prendre un pion
 					
 					Utilitary.CheckGameOver(NotGamerOver, PlayerPionJ1, PlayerPionJ2);
+					try {
+						Utilitary.WriteStringToFile("Tour " + (tour-1) + "\n");
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
 					tour++;
 					try {
 						Utilitary.WriteBoardToFile(board);
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
+					//Tester si le score et la fin de partie fonctionnent
+					if (tour == 5) {
+						NotGamerOver = false;
+					}
+					if (NotGamerOver == false) {
+						if (PlayerPionJ1 == null) {
+							Winner.setPlayerName("Ordinateur");
+							Winner.setNbVictories(+1);
+							Winner.setScore(+1000);
+							Loser.setPlayerName(PlayerName);
+							Loser.setNbDefeats(+1);
+							Loser.setScore(-1000);
+							if (ListWinner.contains(Winner) == false) {
+								ListWinner.add(Winner);
+							}
+							if (ListLoser.contains(Loser) == false) {
+								ListLoser.add(Loser);
+							}
+							System.out.println("Le gagnant de la partie est l'Ordinateur");
+							try {
+								Utilitary.WriteStringToFile("Le gagnant de la partie est l'Ordinateur");
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+						}
+						else {
+							Winner.setPlayerName(PlayerName);
+							Winner.setNbVictories(+1);
+							Winner.setScore(+1000);
+							Loser.setPlayerName("Ordinateur");
+							Loser.setNbDefeats(+1);
+							Loser.setScore(-1000);
+							if (ListWinner.contains(Winner) == false) {
+								ListWinner.add(Winner);
+							}
+							if (ListLoser.contains(Loser) == false) {
+								ListLoser.add(Loser);
+							}
+							System.out.println("Le gagnant de la partie est " + PlayerName);
+							try {
+								Utilitary.WriteStringToFile("Le gagnant de la partie est " + PlayerName);
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+						}
+						
+					}
 				}
 				break;
 				
 			case "2":
-				try {
-					Utilitary.CreateFile();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
 				System.out.println("Quel est le nom du joueur 1 ?");
 				String Player1Name = Utilitary.inputUsers();
 				System.out.println("Quel est le nom du joueur 2 ?");
@@ -101,10 +156,82 @@ public class Menu {
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
+					//Tester si le score et la fin de partie fonctionnent
+					if (tour == 5) {
+						NotGamerOver = false;
+					}
+					if (NotGamerOver == false) {
+						if (PlayerPionJ1 == null) {
+							Winner.setPlayerName(Player2Name);
+							Winner.setNbVictories(+1);
+							Winner.setScore(+1000);
+							Loser.setPlayerName(Player1Name);
+							Loser.setNbDefeats(+1);
+							Loser.setScore(-1000);
+							if (ListWinner.contains(Winner) == false) {
+								ListWinner.add(Winner);
+							}
+							if (ListLoser.contains(Loser) == false) {
+								ListLoser.add(Loser);
+							}
+							System.out.println("Le gagnant de la partie est " + Player2Name);
+							try {
+								Utilitary.WriteStringToFile("Le gagnant de la partie est " + Player2Name);
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+						}
+						else {
+							Winner.setPlayerName(Player1Name);
+							Winner.setNbVictories(+1);
+							Winner.setScore(+1000);
+							Loser.setPlayerName(Player2Name);
+							Loser.setNbDefeats(+1);
+							Loser.setScore(-1000);
+							if (ListWinner.contains(Winner) == false) {
+								ListWinner.add(Winner);
+							}
+							if (ListLoser.contains(Loser) == false) {
+								ListLoser.add(Loser);
+							}
+							System.out.println("Le gagnant de la partie est " + Player1Name);
+							try {
+								Utilitary.WriteStringToFile("Le gagnant de la partie est" + Player1Name);
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+						}
+						
+					}
+					
 				}
 				break;
 				
 			case "3":
+				System.out.println("Que souhaitez vous faire ?" 
+						+ "\n1 Regarder le classement par joueur (victoires défaites score) ?"
+						+ "\n2 Regarder résultat de la dernière partie");
+				switch(Utilitary.inputUsers()) {
+				case "1":
+					Utilitary.CreateFile("classement.txt");
+					ListWinner.addAll(ListLoser);
+					//TODO Régler l'erreur ClassCastException
+					try {
+						Utilitary.WriteScoreBoard(ListWinner);
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+					break;
+				case "2":
+					Utilitary.CreateFile("score.txt");
+					//TODO Faire en sorte que Winner et Loser prennent les valeurs attribuées à la fin de la partie
+					try {
+						Utilitary.WriteLastGameScoreToFile(Winner, Loser);
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+					break;
+				}
 				break;
 				
 			case "4": 

@@ -31,8 +31,9 @@ public class Game {
 				int NewCoordonneeX = Utilitary.readInt(); 
 				System.out.println("Ordonnée Y (Entre 0 et 9) : ");
 				int NewCoordonneeY = Utilitary.readInt(); 
+				EatPiece(readCoordonneeX, readCoordonneeY, PionPlayer, PionPlayerNext);
 //				TODO Function CheckNextPos, in progress..
-				if (CheckNextPos(NewCoordonneeX, NewCoordonneeY, PionPlayer, PionPlayerNext)) {
+				if (CheckNextPos(NewCoordonneeX, NewCoordonneeY, PionPlayer, PionPlayerNext) == true) {
 					pion.setPosX(NewCoordonneeX);
 					pion.setPosY(NewCoordonneeY);
 
@@ -52,6 +53,7 @@ public class Game {
 						int NewCoordonneeX = Utilitary.readInt(); 
 						System.out.println("Ordonnée Y (Entre 0 et 9) : ");
 						int NewCoordonneeY = Utilitary.readInt(); 
+						EatPiece(readCoordonneeX, readCoordonneeY, PionPlayer, PionPlayerNext);
 //						TODO Function CheckNextPos, in progress..
 						if (CheckNextPos(NewCoordonneeX, NewCoordonneeY, PionPlayer, PionPlayerNext)== true) {
 							pion2.setPosX(NewCoordonneeX);
@@ -77,13 +79,13 @@ public class Game {
 	
 //	TODO Function in progress	
 	public static boolean CheckNextPos(int posX, int posY, ArrayList<Pion> PionPlayer1 , ArrayList<Pion> PionPlayer2) {
-		boolean ItsOktoMove = true;
+		boolean ItsOktoMove = false;
 		for (Pion pion : PionPlayer2) {
 			for (Pion pion2 : PionPlayer1) {
-				if (posX == pion.getPosX() && posY == pion.getPosY() || posX == pion2.getPosX() && posY == pion2.getPosY()) {
-					ItsOktoMove = false;				
+				if (posX != pion.getPosX() && posY != pion.getPosY() || posX != pion2.getPosX() && posY != pion2.getPosY()) {
+					ItsOktoMove = true;				
 				} else {
-					ItsOktoMove = true;					
+					ItsOktoMove = false;										
 				}
 			}
 		}
@@ -91,8 +93,15 @@ public class Game {
 	}
 	
 // TODO Function EatPiece is in progress..
-	public void EatPiece(ArrayList<Pion> PionPlayer1, ArrayList<Pion> PionPlayer2) {
-		
+	public static void EatPiece(int posX, int posY, ArrayList<Pion> PionPlayer, ArrayList<Pion> PionPlayerNext) {
+//		for (Pion pion : PionPlayerNext) {
+//				if(posX != pion.getPosX() && posY != pion.getPosY()) {
+//					if (posX-1 == pion.getPosX() && posY+1 == pion.getPosY() || posX-1 == pion.getPosX() && -1 == pion.getPosY()) {
+//						PionPlayerNext.remove(pion);
+//					}
+//				}
+//			}
+//		System.out.println(PionPlayerNext);
 	}
 
 	

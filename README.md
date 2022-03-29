@@ -1,5 +1,5 @@
 # Jeu de dames en Java
-Bienvenue dans notre projet de jeu de dame en java.
+Projet d'etude en 2ème année de Bachelor en Informatique - jeu de dame en java.
 
 Le jeu de dame est un jeu opposant deux joueurs dans lequel on déplace des pions sur un damier.
 
